@@ -12,8 +12,8 @@ auto = False
 plant = True
 
 #Длина поля
-xLenght = 7
-yLenght = 6
+xLenght = 7.0
+yLenght = 6.0
 
 #Функции
 
@@ -37,21 +37,19 @@ def change():
         btn2 = Button(window, text="ВЫХОД", command=window.destroy).place(x=400, y=320, bordermode=OUTSIDE)
 
         lbl3 = Label(window, text="Введите частоту - 0.15 оптимальная").place(x=10, y=110, bordermode=OUTSIDE)
-        number = Entry(window, textvariable=message, width=20).place(x=10, y=130, )
+        number = Entry(window, textvariable=timePlant, width=20).place(x=10, y=130, )
         btn = Button(text='ОК', command=get_num, font='5', padx='25', pady='5').place(x=10, y=150, bordermode=OUTSIDE)
 
-        lbl3 = Label(window, text="Расстояние вдаль (недоступно)").place(x=10, y=180, bordermode=OUTSIDE)
-        number = Entry(window, textvariable=message, width=20).place(x=10, y=200, )
-        btn = Button(text='ОК', font='5', padx='25', pady='5').place(x=10, y=220, bordermode=OUTSIDE)
+        lblHeight = Label(window, text="Расстояние вдаль (недоступно)").place(x=10, y=180, bordermode=OUTSIDE)
+        numberHeight = Entry(window, textvariable=heightPlant, width=20).place(x=10, y=200, )
+        btnHeight = Button(text='ОК',command=get_height, font='5', padx='25', pady='5').place(x=10, y=220, bordermode=OUTSIDE)
 
-        lbl3 = Label(window, text="Расстояние в ширину (недоступно)").place(x=10, y=250, bordermode=OUTSIDE)
-        number = Entry(window, textvariable=message, width=20).place(x=10, y=270, )
-        btn = Button(text='ОК', font='5', padx='25', pady='5').place(x=10, y=290, bordermode=OUTSIDE)
+        lbl3Width = Label(window, text="Расстояние в ширину (недоступно)").place(x=10, y=250, bordermode=OUTSIDE)
+        numberWidth = Entry(window, textvariable=widthPlant, width=20).place(x=10, y=270, )
+        btnWidth = Button(text='ОК',command=get_width, font='5', padx='25', pady='5').place(x=10, y=290, bordermode=OUTSIDE)
 
 
-        lblFood = Label(window, text="Нужно ли есть?").place(x=350, y=200, bordermode=OUTSIDE)
-        TakeFood = Radiobutton(text="Принимать", variable=food, value=0).place(x=350, y=220, bordermode=OUTSIDE)
-        NoTakeFood = Radiobutton(text="Не принимать", variable=food, value=1).place(x=350, y=240, bordermode=OUTSIDE)
+
 
     else:
         lbl = Label(window, text="This program was made on pure enthusiasm.").place(x=0, y=0, bordermode=OUTSIDE)
@@ -65,27 +63,36 @@ def change():
         btn2 = Button(window, text="exit", command=window.destroy).place(x=400, y=320, bordermode=OUTSIDE)
 
         lbl3 = Label(window, text="Enter frequency - 0.15 optimal").place(x=10, y=110, bordermode=OUTSIDE)
-        number = Entry(window, textvariable=message, width=20).place(x=10, y=130, )
+        number = Entry(window, textvariable=timePlant, width=20).place(x=10, y=130, )
         btn = Button(text='ОК', command=get_num, font='5', padx='25', pady='5').place(x=10, y=150, bordermode=OUTSIDE)
 
-        lbl3 = Label(window, text="Distance into the distance (not available)").place(x=10, y=180, bordermode=OUTSIDE)
-        number = Entry(window, textvariable=message, width=20).place(x=10, y=200, )
-        btn = Button(text='ОК', font='5', padx='25', pady='5').place(x=10, y=220, bordermode=OUTSIDE)
+        lblHeight = Label(window, text="Distance into the distance (not available)").place(x=10, y=180, bordermode=OUTSIDE)
+        numberHeight = Entry(window, textvariable=heightPlant, width=20).place(x=10, y=200, )
+        btnHeight = Button(text='ОК',command=get_height, font='5', padx='25', pady='5').place(x=10, y=220, bordermode=OUTSIDE)
 
-        lbl3 = Label(window, text="Width Distance (not available)").place(x=10, y=250, bordermode=OUTSIDE)
-        number = Entry(window, textvariable=message, width=20).place(x=10, y=270, )
-        btn = Button(text='ОК', font='5', padx='25', pady='5').place(x=10, y=290, bordermode=OUTSIDE)
+        lbl3Width = Label(window, text="Width Distance (not available)").place(x=10, y=250, bordermode=OUTSIDE)
+        numberWidth = Entry(window, textvariable=widthPlant, width=20).place(x=10, y=270, )
+        btnWidth = Button(text='ОК',command=get_width, font='5', padx='25', pady='5').place(x=10, y=290, bordermode=OUTSIDE)
 
-        lblFood = Label(window, text="Do you need to eat?").place(x=350, y=200, bordermode=OUTSIDE)
-        TakeFood = Radiobutton(text="Take", variable=food, value=0).place(x=350, y=220, bordermode=OUTSIDE)
-        NoTakeFood = Radiobutton(text="No take", variable=food, value=1).place(x=350, y=240, bordermode=OUTSIDE)
+
 
 def get_num():
-    str_speed = message.get()
+    str_speed = timePlant.get()
     b = 0
     speed = float(str_speed) + b
-    print("The value of c = ", speed)
-    print(str_speed)
+    print("The value of speed ", str_speed)
+
+def get_height():
+    str_heightPlant = heightPlant.get()
+    b = 0
+    speed = float(str_heightPlant) + b
+    print("The value of height ", str_heightPlant)
+
+def get_width():
+    str_widthPlant = widthPlant.get()
+    b = 0
+    speed = float(str_widthPlant) + b
+    print("The value of width ", str_widthPlant)
 
 def vk():
    webbrowser.open('https://vk.com/gn1dor', new=2)
@@ -97,14 +104,27 @@ def ds():
    webbrowser.open('https://discord.gg/ZPXbfUYqHs', new=2)
 
 def planting():
-    str_speed = message.get()
+
+    str_speed = timePlant.get()
     b = 0
     speed = float(str_speed) + b
+
+
+    str_heightPlant = heightPlant.get()
+
+    yLenght = float(str_heightPlant) + b
+
+
+    str_widthPlant = widthPlant.get()
+
+    xLenght = float(str_widthPlant) + b
+
+
     back = False
-    for i in range(xLenght):
+    for i in range(int(xLenght)):
         if back is False:
             time.sleep(2)
-            for i in range(yLenght):
+            for i in range(int(yLenght)):
                 pyautogui.mouseUp()
                 pyautogui.mouseDown()
                 time.sleep(1)
@@ -118,7 +138,7 @@ def planting():
             pyautogui.keyUp('s')
             back = not back
         else:
-            for i in range(yLenght):
+            for i in range(int(yLenght)):
                 pyautogui.mouseUp()
                 pyautogui.mouseDown()
                 time.sleep(1)
@@ -145,7 +165,15 @@ btn3 = Button(window, text="vk", command=vk).place(x=400, y=20, bordermode=OUTSI
 btn4 = Button(window, text="tg", command=tg).place(x=380, y=20, bordermode=OUTSIDE)
 btn5 = Button(window, text="ds", command=ds).place(x=420, y=20, bordermode=OUTSIDE)
 
-message = StringVar()
+timePlant = StringVar()
+var = IntVar()
+var.set(0)
+
+widthPlant= StringVar()
+var = IntVar()
+var.set(0)
+
+heightPlant= StringVar()
 var = IntVar()
 var.set(0)
 
