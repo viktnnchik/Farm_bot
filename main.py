@@ -114,7 +114,6 @@ def planting():
 
     yLenght = float(str_heightPlant) + b
 
-
     str_widthPlant = widthPlant.get()
 
     xLenght = float(str_widthPlant) + b
